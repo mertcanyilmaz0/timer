@@ -55,6 +55,8 @@ body {
     justify-content: center;
     align-items: center;
     display: flex;
+    margin-right: 1rem;
+    margin-left: 1rem;
   }
   .work-content{
     align-items: center;
