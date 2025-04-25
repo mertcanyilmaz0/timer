@@ -160,12 +160,17 @@ const music = document.getElementById("music")
 musicCheck.addEventListener("change", function(){
   if (musicCheck.checked) {
     music.play();
+    const audioPlayer = document.getElementById('music');
+    const sesKontrol = document.getElementById('sesKontrol');
+    sesKontrol.style.display = "inline-block";
+    sesKontrol.addEventListener('input', function() {
+    audioPlayer.volume = this.value;
+});
   } else {
     music.pause();
+    sesKontrol.style.display = "none";
   };
 })
-
-
 
 let navbarPoint = 1;
 const carp = document.getElementById("carpi");
@@ -192,3 +197,4 @@ carp.addEventListener("click", function(){
       navbarPoint = 1
   }
 })
+

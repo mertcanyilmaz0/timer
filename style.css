@@ -190,6 +190,9 @@ body {
   justify-content: center;
   align-items: center;
 }
+#sesKontrol{
+  display: none;
+}
   @media (max-width: 900px){
     .background{
       font-size: 3rem;
