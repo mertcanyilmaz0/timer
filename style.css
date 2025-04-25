@@ -3,35 +3,74 @@
   font-family: 'RoboticNumbers';
   src: url('fonts/SFTransRobotics.ttf') format('truetype');
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  transition: 0.2s ease;
+  font-family: "Poppins", sans-serif; 
+}
 body {
-    font-family: Poppins, sans-serif;
-    text-align: center;
     background-image: url(fuji-mountain.png);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     transition: background-image 0.5s ease-in-out;
   }
-  p{
+  .settings{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-top: 1rem;
+    margin-right: 2rem;
+  }
+  .settings svg{
+    cursor: pointer;
+    color: white;
+    height: 3rem;
+  }
+  .motivation {
+    display: none;
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: start;
+    margin-right: 2rem;
+    margin-left: 2rem;
+  }
+
+  .exit{
     color: black;
-    opacity: 0.6;
+    opacity: 0.8;
     display: none;
     font-size: 2rem;
+    text-align: center;
+  }
+  .work{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .work-content{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
   }
   html{
         font-size: 62.5%; 
+        overflow-x: hidden;
+
   }
   h1{
     color: white;
-    font-size: 8rem;
+    font-size: 6rem;
     margin-bottom: 1rem;
-  }
-  .background{
-    border: none;
-    background-color: gray;
-    color: white;
-    margin-bottom: 2rem;
-    cursor: pointer;
+    text-align: center;
   }
   .timer::placeholder{
     color: gray;
@@ -44,13 +83,13 @@ body {
     padding: 1rem;
     margin-right: 2rem;
   }
-  button {
+  .start {
     padding: 1.2rem;
     background-color: gray;
     color: white;
     border: none;
   }
-  button:active{
+  .start:active{
     background-color: black;
   }
   #timer {
@@ -58,27 +97,98 @@ body {
     margin-top: 1rem;
     color: white;
     font-family: RoboticNumbers, sans-serif;
+    justify-content: center;
+    align-items: center;
+    display: flex;
   }
   .container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    
   }
   .container .timer-input{
     display: flex;
     justify-content: center;
     align-items: center;
   }
+  .background{
+    border: none;
+    background-color: gray;
+    color: white;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    font-size: 5rem;
+    padding: 1rem 1rem;
+    border-radius: 1rem;
+  }
+  .x{
+    display: flex;
+    justify-content: end;
+  }
+  .x svg{
+    margin-right: 2rem;
+    padding-top: 1rem;
+    height: 5rem;
+    color: white;
+    cursor: pointer;
+  }
+  .navbar{
+    background-image: url(fuji-mountain.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: black;
+    width: 100vw;
+    display: none;
+    z-index: 2;
+  }
+  .big-container{
+    z-index: 1;
+  }
+  .navbar-list{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+}
+.navbar-list li{
+  font-size: 5rem;
+}
+.ozluSoz-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ozluSoz-container label{
+  margin-left: 1.5rem;
+  color: white;
+}
+#ozluSoz{
+  transform: scale(3);
+  justify-content: center;
+  align-items: center;
+}
   @media (max-width: 900px){
-    p {
-      opacity: 0.4;
+    .background{
+      font-size: 3rem;
+    }
+    #ozluSoz{
+      transform: scale(2);
+    }
+    .ozluSoz-container label{
+      font-size: 3rem;
     }
     html{
       font-size: 53%;
     }
     h1{
       font-size: 5rem;
+    }
+    #timer{
+      font-size: 7.8rem;
     }
   }
