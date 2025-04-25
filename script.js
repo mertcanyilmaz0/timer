@@ -1,11 +1,11 @@
-let countdown;
+ let countdown;
 
 function requestNotificationPermission() {
   if (Notification.permission !== "granted") {
     Notification.requestPermission();
   }
-}
-function endTimer() {
+} 
+ function endTimer() {
   clearInterval(countdown);
   document.getElementById("timer").textContent = "00:00";
   console.log("Zamanlayıcı durduruldu");
@@ -35,16 +35,87 @@ function startTimer() {
 
     totalSeconds--;
   }, 1000);
-}
+} 
 
-function sendNotification() {
-  if (Notification.permission === "granted") {
-    new Notification("Süre doldu!", {
-      body: "Zamanlayıcınız tamamlandı.",
-      icon: "https://example.com/icon.png"
-    });
+/*   let countdown;
+  let isPaused = false;
+  let totalSeconds = 0;
+  
+  function endTimer() {
+    clearInterval(countdown);
+    document.getElementById("timer").textContent = "00:00";
+    document.getElementById("duraklat-btn").disabled = true;
+    console.log("Zamanlayıcı durduruldu");
   }
-}
+  
+  function startTimer() {
+    clearInterval(countdown); // Önceki zamanlayıcı varsa durdur
+  
+    const minuteInput = document.getElementById("minuteInput");
+    const minutes = parseInt(minuteInput.value);
+  
+    if (isNaN(minutes) || minutes <= 0) {
+      alert("Lütfen geçerli bir dakika değeri girin.");
+      return;
+    }
+  
+    totalSeconds = minutes * 60;
+    isPaused = false;
+  
+    document.getElementById("duraklat-btn").textContent = "Duraklat";
+    document.getElementById("duraklat-btn").disabled = false;
+  
+    countdown = setInterval(() => {
+      if (!isPaused) {
+        const min = Math.floor(totalSeconds / 60);
+        const sec = totalSeconds % 60;
+  
+        document.getElementById("timer").textContent =
+          `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+  
+        if (totalSeconds <= 0) {
+          clearInterval(countdown);
+          sendNotification();
+          document.getElementById("duraklat-btn").disabled = true;
+        }
+  
+        totalSeconds--;
+      }
+    }, 1000);
+  }
+  
+  function togglePause() {
+    if (totalSeconds <= 0) return;
+  
+    isPaused = !isPaused;
+    const duraklatBtn = document.getElementById("duraklat-btn");
+    duraklatBtn.textContent = isPaused ? "Devam Et" : "Duraklat";
+    console.log(isPaused ? "Zamanlayıcı duraklatıldı" : "Zamanlayıcı devam ediyor");
+  }
+  
+  function sendNotification() {
+    alert("Zaman doldu!");
+  }
+
+
+pauseBtnPoint = 1
+const pauseBtn = document.getElementById("duraklatBtn");
+
+pauseBtn.addEventListener("click", function(){
+  if(pauseBtnPoint === 0){
+    pauseBtnPoint = 0
+    togglePause()
+    pauseBtn.innerText = "Duraklat"
+  } if (pauseBtnPoint === 1){
+    pauseBtnPoint = 1
+    togglePause()
+    pauseBtn.innerText = "Devam Et"
+  }
+}) */
+
+/* function sendNotification() {
+  alert("Zaman doldu!");
+} */
 
 window.onload = function () {
   requestNotificationPermission();
