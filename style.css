@@ -7,6 +7,12 @@ body {
     background-position: center;
     background-attachment: fixed;
   }
+  p{
+    color: black;
+    opacity: 0.6;
+    display: none;
+    font-size: 2rem;
+  }
   html{
         font-size: 62.5%; 
   }
@@ -45,6 +51,9 @@ body {
     align-items: center;
   }
   @media (max-width: 900px){
+    p {
+      opacity: 0.4;
+    }
     html{
       font-size: 53%;
     }

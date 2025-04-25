@@ -58,6 +58,7 @@ function destroyed(){
   const minutes = parseInt(document.getElementById("minuteInput").value);
   const container = document.getElementById("container")
   const timer = document.getElementById("timer")
+  const exit = document.querySelector("#exit")
   if (isNaN(minutes) || minutes <= 0){
     alert("Lütfen geçerli bir dakika değeri girin.");
     return;
@@ -69,9 +70,11 @@ function destroyed(){
       timer.style.alignItems = "center"; 
       timer.style.height = "100vh";
       timer.style.marginTop = "0rem";
+      exit.style.display = "block";
     } if (destroyPoint === 1){{
         container.style.display = "block";
         timer.style.height = "";
+        exit.style.display = "none";
         endTimer()
     }
   }
