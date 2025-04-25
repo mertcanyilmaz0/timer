@@ -1,8 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 @font-face {
   font-family: 'RoboticNumbers';
   src: url('fonts/SFTransRobotics.ttf') format('truetype');
 }
+
+:root{
+ --white-color: #fff;
+ --black-color: #000;
+ --gray-color: #808080;
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -11,207 +20,255 @@
   border: none;
   text-decoration: none;
   transition: 0.2s ease;
-  font-family: "Poppins", sans-serif; 
+  font-family: "Poppins", sans-serif;
 }
-body {
-    background-image: url(fuji-mountain.png);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    transition: background-image 0.5s ease-in-out;
-  }
-  .settings{
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    margin-top: 1rem;
-    margin-right: 2rem;
-  }
-  .settings svg{
-    cursor: pointer;
-    color: white;
-    height: 3rem;
-  }
-  .motivation {
-    display: none;
-    color: white;
-    font-size: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: start;
-    margin-right: 2rem;
-    margin-left: 2rem;
-  }
 
-  .exit{
-    color: black;
-    opacity: 0.8;
-    display: none;
-    font-size: 2rem;
-    text-align: center;
-  }
-  .work{
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    margin-right: 1rem;
-    margin-left: 1rem;
-  }
-  .work-content{
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-  }
-  html{
-        font-size: 62.5%; 
-        overflow-x: hidden;
-        overflow-y: hidden;
-  }
-  .duraklat-btn{
-    padding: 1rem 1rem;
-    border-radius: 0.5rem;
-    font-size: 2rem;
-    background-color: gray;
-    color: white;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-    display: none;
-  }
-  h1{
-    color: white;
-    font-size: 6rem;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-  .timer::placeholder{
-    color: white;
-    opacity: 0.7;
-  }
-  .timer{
-    background-color: gray;
-    color: white;
-    border: none;
-    font-size: 1.8rem;
-    padding: 1rem;
-    margin-right: 2rem;
-    border-radius: 0.5rem;
-  }
-  .start {
-    padding: 1.2rem;
-    background-color: gray;
-    color: white;
-    border: none;
-    border-radius: 0.5rem;
-  }
-  .start:active{
-    background-color: black;
-  }
-  #timer {
-    font-size: 12rem;
-    margin-top: 1rem;
-    color: white;
-    font-family: RoboticNumbers, sans-serif;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-  }
-  .container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-  }
-  .container .timer-input{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .background{
-    border: none;
-    background-color: gray;
-    color: white;
-    margin-bottom: 2rem;
-    cursor: pointer;
-    font-size: 5rem;
-    padding: 1rem 1rem;
-    border-radius: 1rem;
-  }
-  .x{
-    display: flex;
-    justify-content: end;
-  }
-  .x svg{
-    margin-right: 2rem;
-    padding-top: 1rem;
-    height: 5rem;
-    color: white;
-    cursor: pointer;
-  }
-  .navbar{
-    background-image: url(fuji-mountain.png);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-color: black;
-    width: 100vw;
-    display: none;
-    z-index: 2;
-  }
-  .big-container{
-    z-index: 1;
-  }
-  .navbar-list{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    list-style-type: none;
-    justify-content: center;
-    align-items: center;
+body {
+  background-image: url(fuji-mountain.png);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  transition: background-image 0.5s ease-in-out;
 }
-.navbar-list li{
+
+.settings {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-top: 1rem;
+  margin-right: 2rem;
+}
+
+.settings svg {
+  cursor: pointer;
+  color: var(--white-color);
+  height: 3rem;
+}
+
+.motivation {
+  display: none;
+  color: var(--white-color);
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: start;
+  margin-right: 2rem;
+  margin-left: 2rem;
+}
+
+.exit {
+  color: var(--black-color);
+  opacity: 0.8;
+  display: none;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.work {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.work-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.duraklat-btn {
+  padding: 1rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 2rem;
+  background-color: var(--gray-color);
+  color: var(--white-color);
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  display: none;
+}
+
+h1 {
+  color: var(--white-color);
+  font-size: 6rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.timer::placeholder {
+  color: var(--white-color);
+  opacity: 0.7;
+}
+
+.timer {
+  background-color: var(--gray-color);
+  color: var(--white-color);
+  border: none;
+  font-size: 1.8rem;
+  padding: 1rem;
+  margin-right: 2rem;
+  border-radius: 0.5rem;
+}
+
+.start {
+  padding: 1.2rem;
+  background-color: var(--gray-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.start:active {
+  background-color: var(--black-color);
+}
+
+#timer {
+  font-size: 12rem;
+  margin-top: 1rem;
+  color: var(--white-color);
+  font-family: RoboticNumbers, sans-serif;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.container .timer-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background {
+  border: none;
+  background-color: var(--gray-color);
+  color: var(--white-color);
+  margin-bottom: 2rem;
+  cursor: pointer;
+  font-size: 5rem;
+  padding: 1rem 1rem;
+  border-radius: 1rem;
+}
+
+.x {
+  display: flex;
+  justify-content: end;
+}
+
+.x svg {
+  margin-right: 2rem;
+  padding-top: 1rem;
+  height: 5rem;
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+.navbar {
+  background-image: url(fuji-mountain.png);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: var(--black-color);
+  width: 100vw;
+  display: none;
+  z-index: 2;
+}
+
+.big-container {
+  z-index: 1;
+}
+
+.navbar-list {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-list li {
   font-size: 5rem;
 }
+
 .music-container,
-.ozluSoz-container{
+.ozluSoz-container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .music-container label,
-.ozluSoz-container label{
+.ozluSoz-container label {
   margin-left: 1.5rem;
-  color: white;
+  color: var(--white-color);
 }
+
 #music-check,
-#ozluSoz{
+#ozluSoz {
   transform: scale(3);
   justify-content: center;
   align-items: center;
 }
-#sesKontrol{
+
+.tema{
+  border: none;
+  background-color: var(--gray-color);
+  color: var(--white-color);
+  margin-bottom: 2rem;
+  cursor: pointer;
+  font-size: 5rem;
+  padding: 1.5rem 1.5rem;
+  border-radius: 1rem;
+}
+.tema:active{
+  background-color: var(--black-color);
+}
+
+#sesKontrol {
   display: none;
 }
-  @media (max-width: 900px){
-    .background{
-      font-size: 3rem;
-    }
-    #music-check,
-    #ozluSoz{
-      transform: scale(2);
-    }
-    .music-container label,
-    .ozluSoz-container label{
-      font-size: 3rem;
-    }
-    html{
-      font-size: 53%;
-    }
-    h1{
-      font-size: 5rem;
-    }
-    #timer{
-      font-size: 7.8rem;
-    }
+
+@media (max-width: 900px) {
+  .tema,
+  .background {
+    font-size: 3rem;
   }
+
+  #music-check,
+  #ozluSoz {
+    transform: scale(2);
+  }
+
+  .music-container label,
+  .ozluSoz-container label {
+    font-size: 3rem;
+  }
+
+  html {
+    font-size: 53%;
+  }
+
+  h1 {
+    font-size: 5rem;
+  }
+
+  #timer {
+    font-size: 7.8rem;
+  }
+}
