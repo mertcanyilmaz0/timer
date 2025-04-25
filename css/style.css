@@ -24,7 +24,7 @@
 }
 
 body {
-  background-image: url(fuji-mountain.png);
+  background-image: url(../img/fuji-mountain.png);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -179,7 +179,7 @@ h1 {
 }
 
 .navbar {
-  background-image: url(fuji-mountain.png);
+  background-image: url(../img/fuji-mountain.png);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
