@@ -37,9 +37,6 @@ function startTimer() {
   }, 1000);
 }
 
-
-
-
 function sendNotification() {
   if (Notification.permission === "granted") {
     new Notification("Süre doldu!", {
@@ -85,6 +82,7 @@ function destroyed() {
     }
   }
 };
+
 document.querySelector("#timer").addEventListener("click", function () {
   if (destroyPoint === 0) {
     console.log("0");
@@ -92,6 +90,7 @@ document.querySelector("#timer").addEventListener("click", function () {
     destroyed()
   }
 })
+
 document.querySelector("#btn").addEventListener("click", function () {
   startTimer()
   if (destroyPoint === 1) {
@@ -101,6 +100,7 @@ document.querySelector("#btn").addEventListener("click", function () {
     console.log("destroypoint" + " " + destroyPoint);
   }
 });
+
 const input = document.getElementById('bgInput');
 const customBtn = document.getElementById('customBtn');
 
@@ -131,19 +131,29 @@ const soz = document.getElementById("ozluSoz");
 soz.addEventListener("change", function(){
   if (soz.checked) {
     const text = document.getElementById("motivation");
-    console.log("Kutu işaretli.");
     text.style.display = "inline"
   } else {
     const text = document.getElementById("motivation");
-    console.log("Kutu işaretli değil.");
     text.style.display = "none";
   };
 });
 
+const musicCheck = document.getElementById("music-check")
+const music = document.getElementById("music")
+musicCheck.addEventListener("change", function(){
+  if (musicCheck.checked) {
+    music.play();
+  } else {
+    music.pause();
+  };
+})
+
+
+
 let navbarPoint = 1;
 const carp = document.getElementById("carpi");
 const settings = document.getElementById("settings");
-console.log("navbar point 1");
+
 settings.addEventListener("click", function(){
 if(navbarPoint === 1){
   const navbar = document.getElementById("navbar");
@@ -152,9 +162,9 @@ if(navbarPoint === 1){
   navbar.style.left = "0"
   navbar.style.top = "0"
   navbarPoint = 0
-  console.log("navbar point 0");
 };
 });
+
 carp.addEventListener("click", function(){
   if(navbarPoint === 0){
       const navbar = document.getElementById("navbar");
@@ -163,6 +173,5 @@ carp.addEventListener("click", function(){
       navbar.style.left = ""
       navbar.style.top = ""
       navbarPoint = 1
-      console.log("navbar point 1");
   }
 })

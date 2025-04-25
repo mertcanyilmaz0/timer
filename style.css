@@ -158,15 +158,18 @@ body {
 .navbar-list li{
   font-size: 5rem;
 }
+.music-container,
 .ozluSoz-container{
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.music-container label,
 .ozluSoz-container label{
   margin-left: 1.5rem;
   color: white;
 }
+#music-check,
 #ozluSoz{
   transform: scale(3);
   justify-content: center;
@@ -176,9 +179,11 @@ body {
     .background{
       font-size: 3rem;
     }
+    #music-check,
     #ozluSoz{
       transform: scale(2);
     }
+    .music-container label,
     .ozluSoz-container label{
       font-size: 3rem;
     }
