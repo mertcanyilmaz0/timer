@@ -1,43 +1,5 @@
- let countdown;
 
-function requestNotificationPermission() {
-  if (Notification.permission !== "granted") {
-    Notification.requestPermission();
-  }
-} 
- function endTimer() {
-  clearInterval(countdown);
-  document.getElementById("timer").textContent = "00:00";
-  console.log("Zamanlayıcı durduruldu");
-}
-function startTimer() {
-  clearInterval(countdown);
-
-  const minutes = parseInt(document.getElementById("minuteInput").value);
-  if (isNaN(minutes) || minutes <= 0) {
-    alert("Lütfen geçerli bir dakika değeri girin.");
-    return;
-  }
-
-  let totalSeconds = minutes * 60;
-
-  countdown = setInterval(() => {
-    const min = Math.floor(totalSeconds / 60);
-    const sec = totalSeconds % 60;
-
-    document.getElementById("timer").textContent =
-      `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
-
-    if (totalSeconds <= 0) {
-      clearInterval(countdown);
-      sendNotification();
-    }
-
-    totalSeconds--;
-  }, 1000);
-} 
-
-/*   let countdown;
+  let countdown;
   let isPaused = false;
   let totalSeconds = 0;
   
@@ -97,26 +59,6 @@ function startTimer() {
     alert("Zaman doldu!");
   }
 
-
-pauseBtnPoint = 1
-const pauseBtn = document.getElementById("duraklatBtn");
-
-pauseBtn.addEventListener("click", function(){
-  if(pauseBtnPoint === 0){
-    pauseBtnPoint = 0
-    togglePause()
-    pauseBtn.innerText = "Duraklat"
-  } if (pauseBtnPoint === 1){
-    pauseBtnPoint = 1
-    togglePause()
-    pauseBtn.innerText = "Devam Et"
-  }
-}) */
-
-/* function sendNotification() {
-  alert("Zaman doldu!");
-} */
-
 window.onload = function () {
   requestNotificationPermission();
 };
@@ -156,6 +98,8 @@ function destroyed() {
 
 document.querySelector("#timer").addEventListener("click", function () {
   if (destroyPoint === 0) {
+    const duraklatBtn = document.getElementById("duraklat-btn");
+    duraklatBtn.style.display = "none"
     console.log("0");
     destroyPoint = 1;
     destroyed()
@@ -165,6 +109,8 @@ document.querySelector("#timer").addEventListener("click", function () {
 document.querySelector("#btn").addEventListener("click", function () {
   startTimer()
   if (destroyPoint === 1) {
+    const duraklatBtn = document.getElementById("duraklat-btn");
+    duraklatBtn.style.display = "block"
     destroyPoint = 0;
     destroyed()
     console.log("1");

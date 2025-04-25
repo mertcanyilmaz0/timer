@@ -76,6 +76,7 @@ body {
     color: white;
     margin-top: 1rem;
     margin-bottom: 2rem;
+    display: none;
   }
   h1{
     color: white;
