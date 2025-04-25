@@ -5,7 +5,11 @@ function requestNotificationPermission() {
     Notification.requestPermission();
   }
 }
-
+function endTimer() {
+  clearInterval(countdown);
+  document.getElementById("timer").textContent = "00:00";
+  console.log("Zamanlayıcı durduruldu");
+}
 function startTimer() {
   clearInterval(countdown); 
 
@@ -33,6 +37,9 @@ function startTimer() {
   }, 1000);
 }
 
+
+
+
 function sendNotification() {
   if (Notification.permission === "granted") {
     new Notification("Süre doldu!", {
@@ -45,3 +52,43 @@ function sendNotification() {
 window.onload = function() {
   requestNotificationPermission();
 };
+
+let destroyPoint = 1
+function destroyed(){
+  const minutes = parseInt(document.getElementById("minuteInput").value);
+  const container = document.getElementById("container")
+  const timer = document.getElementById("timer")
+  if (isNaN(minutes) || minutes <= 0){
+    alert("Lütfen geçerli bir dakika değeri girin.");
+    return;
+  } else {
+    if (destroyPoint === 0){
+      container.style.display = "none";
+      timer.style.display = "flex"
+      timer.style.justifyContent = "center";
+      timer.style.alignItems = "center"; 
+      timer.style.height = "100vh";
+      timer.style.marginTop = "0rem";
+    } if (destroyPoint === 1){{
+        container.style.display = "block";
+        timer.style.height = "";
+        endTimer()
+    }
+  }
+  }};
+document.querySelector("#timer").addEventListener("click", function(){
+  if (destroyPoint === 0){
+    console.log("0");
+    destroyPoint = 1;
+    destroyed()
+  }
+})
+document.querySelector("#btn").addEventListener("click", function(){
+  startTimer()
+  if (destroyPoint === 1){
+    destroyPoint = 0;
+    destroyed()
+    console.log("1");
+    console.log("destroypoint" + " " + destroyPoint);
+  }
+});
