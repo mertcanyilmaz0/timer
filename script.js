@@ -95,3 +95,25 @@ document.querySelector("#btn").addEventListener("click", function(){
     console.log("destroypoint" + " " + destroyPoint);
   }
 });
+const input = document.getElementById('bgInput');
+const customBtn = document.getElementById('customBtn');
+
+customBtn.addEventListener('click', () => {
+  input.click(); // Tıklanınca gizli input'u tetikleme
+});
+
+input.addEventListener('change', function(event) {
+  const file = event.target.files[0];
+  
+  if (file && file.type.startsWith('image/')) {
+    const reader = new FileReader();
+    
+    reader.onload = function(e) {
+      document.body.style.backgroundImage = `url('${e.target.result}')`;
+    };
+    
+    reader.readAsDataURL(file);
+  } else {
+    alert("Lütfen bir resim dosyası seçin.");
+  }
+});

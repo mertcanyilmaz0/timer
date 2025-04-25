@@ -6,6 +6,7 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    transition: background-image 0.5s ease-in-out;
   }
   p{
     color: black;
@@ -19,11 +20,19 @@ body {
   h1{
     color: white;
     font-size: 8rem;
+    margin-bottom: 1rem;
   }
-  input::placeholder{
+  .background{
+    border: none;
+    background-color: gray;
+    color: white;
+    margin-bottom: 2rem;
+    cursor: pointer;
+  }
+  .timer::placeholder{
     color: gray;
   }
-  input{
+  .timer{
     background-color: gray;
     color: white;
     border: none;
@@ -46,7 +55,14 @@ body {
     color: white;
   }
   .container{
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  }
+  .container .timer-input{
+    display: flex;
     justify-content: center;
     align-items: center;
   }

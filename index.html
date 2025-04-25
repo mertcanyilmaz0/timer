@@ -11,8 +11,12 @@
     <p id="exit">Çıkmak İçin Süreye Tıklayın</p>
     <div class="container" id="container">
         <h1>Geri Sayım Zamanlayıcı</h1>
-        <input type="number" id="minuteInput" placeholder="Dakika gir" min="1">
-        <button id="btn">Başlat</button>
+        <input style="display: none;" type="file" id="bgInput" accept="image/*">
+        <button class="background" id="customBtn">Görsel Yükle</button>
+        <div class="timer-input">
+            <input class="timer" type="number" id="minuteInput" placeholder="Dakika gir" min="1">
+            <button id="btn">Başlat</button>
+        </div>
     </div>
     <div>
     </div>
