@@ -68,7 +68,7 @@ function destroyed(){
       timer.style.display = "flex"
       timer.style.justifyContent = "center";
       timer.style.alignItems = "center"; 
-      timer.style.height = "100vh";
+      timer.style.height = "calc(100vh - 10rem)";
       timer.style.marginTop = "0rem";
       exit.style.display = "block";
     } if (destroyPoint === 1){{
