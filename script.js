@@ -100,7 +100,7 @@ function destroyed() {
   }
 };
 
-document.querySelector("#timer").addEventListener("click", function () {
+document.getElementById("timer").addEventListener("click", function () {
   if (destroyPoint === 0) {
     const duraklatBtn = document.getElementById("duraklat-btn");
     duraklatBtn.style.display = "none"
@@ -108,7 +108,7 @@ document.querySelector("#timer").addEventListener("click", function () {
     destroyPoint = 1;
     destroyed()
   }
-})
+});
 
 document.querySelector("#btn").addEventListener("click", function () {
   startTimer()
