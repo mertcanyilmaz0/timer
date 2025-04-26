@@ -137,13 +137,28 @@ input.addEventListener('change', function (event) {
     const reader = new FileReader();
 
     reader.onload = function (e) {
-      document.body.style.backgroundImage = `url('${e.target.result}')`;
-      navbar.style.backgroundImage = `url('${e.target.result}')`
+      const imageUrl = e.target.result;
+      // Seçilen resmi localStorage'a kaydet
+      localStorage.setItem('backgroundImage', imageUrl);
+
+      document.body.style.backgroundImage = `url('${imageUrl}')`;
+      navbar.style.backgroundImage = `url('${imageUrl}')`;
     };
 
     reader.readAsDataURL(file);
   } else {
     alert("Lütfen bir resim dosyası seçin.");
+  }
+});
+
+// Sayfa yüklenince localStorage'dan resmi çek
+window.addEventListener('load', () => {
+  const savedImage = localStorage.getItem('backgroundImage');
+  const navbar = document.getElementById("navbar");
+
+  if (savedImage) {
+    document.body.style.backgroundImage = `url('${savedImage}')`;
+    navbar.style.backgroundImage = `url('${savedImage}')`;
   }
 });
 
@@ -202,22 +217,40 @@ carp.addEventListener("click", function () {
   }
 })
 
-let themePoint = 1
-const theme = document.getElementById("theme")
-theme.addEventListener("click", function(){
-  if(themePoint === 1){
+document.addEventListener('DOMContentLoaded', function() {
+  let themePoint = localStorage.getItem("themePoint") === "0" ? 0 : 1;
+  const theme = document.getElementById("theme");
+
+  // Temayı uygula
+  if (themePoint === 0) {
     document.documentElement.style.setProperty('--white-color', '#000');
     document.documentElement.style.setProperty('--black-color', '#fff');
     document.documentElement.style.setProperty('--gray-color', '#fff');
-    console.log("0 root");
-    theme.innerText = "Koyu Tema"
-    themePoint = 0
+    if (theme) theme.innerText = "Koyu Tema";
   } else {
     document.documentElement.style.setProperty('--gray-color', '#808080');
     document.documentElement.style.setProperty('--white-color', '#fff');
     document.documentElement.style.setProperty('--black-color', '#000');
-    console.log("1 root");
-    theme.innerText = "Açık Tema"
-    themePoint = 1
+    if (theme) theme.innerText = "Açık Tema";
+  }
+
+  // Buton varsa, click event'ini bağla
+  if (theme) {
+    theme.addEventListener("click", function () {
+      if (themePoint === 1) {
+        document.documentElement.style.setProperty('--white-color', '#000');
+        document.documentElement.style.setProperty('--black-color', '#fff');
+        document.documentElement.style.setProperty('--gray-color', '#fff');
+        theme.innerText = "Koyu Tema";
+        themePoint = 0;
+      } else {
+        document.documentElement.style.setProperty('--gray-color', '#808080');
+        document.documentElement.style.setProperty('--white-color', '#fff');
+        document.documentElement.style.setProperty('--black-color', '#000');
+        theme.innerText = "Açık Tema";
+        themePoint = 1;
+      }
+      localStorage.setItem("themePoint", themePoint);
+    });
   }
 });
